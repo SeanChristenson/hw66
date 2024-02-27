@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game</title>
+</head>
+<body>
+    <h1>Welcome to the Memory Matching Game</h1>
+    <form id="playerForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" required><br>
+        <label for="attempts">Attempts:</label>
+        <span id="attempts">0</span><br>
+        <button type="submit">Start Game</button>
+    </form>
+
+    <script>
+        document.getElementById("playerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const age = document.getElementById("age").value;
+            const attempts = document.getElementById("attempts").textContent;
+
+            const playerData = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                attempts: attempts
+            };
+
+            localStorage.setItem("playerData", JSON.stringify(playerData));
+            window.location.href = "memory_game.html"; 
+        });
+    </script>
+</body>
+</html>

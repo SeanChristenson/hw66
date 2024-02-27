@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Matching Game - Final Page</title>
+</head>
+<body>
+    <h1>Memory Matching Game - Final Page</h1>
+    <div id="playerInfo"></div>
+
+    <script>
+        const playerData = JSON.parse(localStorage.getItem('playerData'));
+        const playerInfoDiv = document.getElementById('playerInfo');
+        playerInfoDiv.innerHTML = `
+            <p>Name: ${playerData.firstName} ${playerData.lastName}</p>
+            <p>Age: ${playerData.age}</p>
+            <p>Attempts: ${playerData.attempts}</p>
+            <p>Score: ${playerData.score}</p>
+        `;
+    </script>
+</body>
+</html>
